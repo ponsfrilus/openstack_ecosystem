@@ -159,7 +159,8 @@
                  dom.removeClass('linkable')
                  window.status = ''
               }
-            }else if ($.inArray(nearest.node.name, ['openstack','Computing','Networking','Storing','Identity','Telemetry','Orchestration','Database','Dashboard','Common Libraries','Bare Metal','Hypervisor','Deployment','Operating System']) >=0 ){
+            }else {
+              //if ($.inArray(nearest.node.name, ['openstack','Computing','Networking','Storing','Identity','Telemetry','Orchestration','Database','Dashboard','Common Libraries','Bare Metal','Hypervisor','Deployment','Operating System']) >=0 ){
               if (nearest.node.name!=_section){
                 _section = nearest.node.name
                 that.switchSection(_section)
@@ -305,7 +306,7 @@
         switch (_path){
           case '':
           case '/':
-          dom.find('p').text('a graph visualization of openstack ecosystem with arbor.js')
+          dom.find('p').text('a graph visualization of openstack ecosystem')
           dom.find('> a').removeClass('active').attr('href','#')
           break
 
@@ -349,6 +350,7 @@
 
             Database:{color:CLR.branch, shape:"dot", alpha:1},
               Trove:{color:CLR.code, alpha:0, link:'https://wiki.openstack.org/wiki/Trove'},
+              Galera:{color:CLR.code, alpha:0, link:'https://github.com/codership/galera'},
 
             Dashboard:{color:CLR.branch, shape:"dot", alpha:1},
               Horizon:{color:CLR.code, alpha:0, link:'https://wiki.openstack.org/wiki/Trove'},
@@ -358,6 +360,10 @@
 
             "Bare Metal":{color:CLR.branch, shape:"dot", alpha:1},
               Ironic:{color:CLR.code, alpha:0, link:'https://wiki.openstack.org/wiki/Ironic'},
+              Foreman:{color:CLR.code, alpha:0, link:'http://theforeman.org/'},
+
+            "Data processing":{color:CLR.branch, shape:"dot", alpha:1},
+              Sahara:{color:CLR.code, alpha:0, link:'https://wiki.openstack.org/wiki/Sahara'},
 
             Hypervisor:{color:CLR.branch, shape:"dot", alpha:1},
               KVM:{color:CLR.code, alpha:0, link:'http://www.linux-kvm.org/'},
@@ -378,6 +384,19 @@
               Juju:{color:CLR.code, alpha:0, link:'https://juju.ubuntu.com/'},
               Crowbar:{color:CLR.code, alpha:0, link:'http://crowbar.github.io/'},
               "Cloud Foundry":{color:CLR.code, alpha:0, link:'http://cloudfoundry.org'},
+              "Fuel":{color:CLR.code, alpha:0, link:'https://wiki.openstack.org/wiki/Fuel'},
+              TripleO:{color:CLR.code, alpha:0, link:'https://wiki.openstack.org/wiki/TripleO'},
+
+            "Quality Assurance":{color:CLR.branch, shape:"dot", alpha:1},
+              Tempest:{color:CLR.code, alpha:0, link:'http://docs.openstack.org/developer/tempest/'},
+              Kong:{color:CLR.code, alpha:0, link:'https://github.com/cloudbuilders/kong'},
+              Zodiac:{color:CLR.code, alpha:0, link:'https://github.com/rohit-k/zodiac'},
+              Torpedo:{color:CLR.code, alpha:0, link:'https://github.com/dprince/torpedo'},
+              Backfire:{color:CLR.code, alpha:0, link:'https://github.com/ohthree/backfire'},
+              Lettuce:{color:CLR.code, alpha:0, link:'http://lettuce.it/'},
+              "Reddwarf Integration Tests":{color:CLR.code, alpha:0, link:'https://github.com/rackspace/reddwarf'},
+              StackTester:{color:CLR.code, alpha:0, link:'https://github.com/rackspace-titan/stacktester'},
+              SmokeStack:{color:CLR.code, alpha:0, link:'https://github.com/dprince/smokestack'},
 
             "Operating System":{color:CLR.branch, shape:"dot", alpha:1},
               Ubuntu:{color:CLR.code, alpha:0, link:'http://www.ubuntu.com/'},
@@ -388,7 +407,6 @@
               "Scientific Linux":{color:CLR.code, alpha:0, link:'https://www.scientificlinux.org/'},
               Suse:{color:CLR.code, alpha:0, link:'https://www.suse.com/'},
               Fedora:{color:CLR.code, alpha:0, link:'http://fedoraproject.org/'},
-
             },
       edges:{
         "openstack":{
@@ -404,6 +422,8 @@
           "Bare Metal":{length:.8},
           Hypervisor:{length:.8},
           Deployment:{length:.8},
+          "Data processing":{length:.8},
+          "Quality Assurance":{length:.8},
           "Operating System":{length:.8},
         },
         Computing:{
@@ -428,6 +448,7 @@
         },
         Database:{
           Trove:{},
+          Galera:{},
         },
         Dashboard:{
           Horizon:{},
@@ -437,6 +458,10 @@
         },
         "Bare Metal":{
           Ironic:{},
+          Foreman:{},
+        },
+        "Data processing":{
+          Sahara:{},
         },
         Hypervisor:{
           KVM:{},
@@ -456,6 +481,19 @@
           Salt:{},
           Juju:{},
           Crowbar:{},
+          TripleO:{},
+          Fuel:{},
+        },
+        "Quality Assurance":{
+          Tempest:{},
+          Kong:{},
+          Zodiac:{},
+          Torpedo:{},
+          Backfire:{},
+          Lettuce:{},
+          "Reddwarf Integration Tests":{},
+          StackTester:{},
+          SmokeStack:{},
         },
         "Operating System":{
           Ubuntu:{},
