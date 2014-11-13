@@ -351,6 +351,7 @@
             Database:{color:CLR.branch, shape:"dot", alpha:1},
               Trove:{color:CLR.code, alpha:0, link:'https://wiki.openstack.org/wiki/Trove'},
               Galera:{color:CLR.code, alpha:0, link:'https://github.com/codership/galera'},
+              Percona XtraDB Cluster:{color:CLR.code, alpha:0, link:'https://launchpad.net/percona-xtradb-cluster'},
 
             Dashboard:{color:CLR.branch, shape:"dot", alpha:1},
               Horizon:{color:CLR.code, alpha:0, link:'https://wiki.openstack.org/wiki/Trove'},
